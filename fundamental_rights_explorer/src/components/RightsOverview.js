@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import rightsData from "../data/rights";
 import "./RightsOverview.css";
+import { JusticeIcon } from "./Icon";
 
 /**
  * RightsOverview
@@ -34,6 +35,9 @@ function RightsOverview() {
             tabIndex={0}
             aria-label={`View details for ${right.title}`}
           >
+            <span aria-hidden="true" style={{ marginRight: 13, display: "inline-flex" }}>
+              <JusticeIcon size={28} />
+            </span>
             <span className="right-card-title">{right.title}</span>
           </button>
         ))}
