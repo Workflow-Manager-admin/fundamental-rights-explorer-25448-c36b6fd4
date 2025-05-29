@@ -19,28 +19,6 @@ function Quiz({ quiz = [] }) {
   // Whether user has answered a question (boolean array)
   const isAnswered = index => selected[index] !== null;
 
-  // Animate quiz feedback fade class
-  const [animFeedback, setAnimFeedback] = useState(Array(quiz.length).fill(""));
-
-  // Set animation class on answer or reset
-  React.useEffect(() => {
-    setAnimFeedback(selected.map((s, i) =>
-      s !== null ? "quiz-feedback-anim-in quiz-feedback-fade" : "quiz-feedback-anim-out quiz-feedback-fade"
-    ));
-    // Remove "out" after fade completes for accessibility
-    const timer = setTimeout(() => {
-      setAnimFeedback((current) =>
-        current.map((c, i) =>
-          selected[i] !== null
-            ? "quiz-feedback-anim-in quiz-feedback-fade"
-            : ""
-        )
-      );
-    }, 340); // fade out > anim duration
-    return () => clearTimeout(timer);
-  // eslint-disable-next-line
-  }, [selected.join(",")]);
-
   // Handler for answer selection
   const handleChange = (qIdx, oIdx) => {
     // Don't allow change once answered - only first answer counts
@@ -125,8 +103,7 @@ function Quiz({ quiz = [] }) {
                   color: clr,
                   fontWeight: isCorrect ? 600 : 400,
                   boxShadow: "none",
-                  border: border,
-                  transition: "background 0.12s"
+                  border: border
                 }}>
                   <input
                     type="radio"
@@ -146,7 +123,6 @@ function Quiz({ quiz = [] }) {
           <div
             id={`quiz-q${qIdx}-feedback`}
             aria-live="polite"
-            className={animFeedback[qIdx]}
             style={{
               minHeight: 26,
               marginTop: 2,
