@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import rightsData from "../data/rights";
 import "./RightsOverview.css"; // Reuse core styling
+import Quiz from "./Quiz";
 
 // PUBLIC_INTERFACE
 function RightsDetail() {
@@ -42,6 +43,8 @@ function RightsDetail() {
         <Link to="/" className="btn" style={{ marginBottom: 22, display: "inline-block" }}>
           Back to Overview
         </Link>
+
+        <Quiz quiz={right.quiz || []} />
       </div>
     </div>
   );
