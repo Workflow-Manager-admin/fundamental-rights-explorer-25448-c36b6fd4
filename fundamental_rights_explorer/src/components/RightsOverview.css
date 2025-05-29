@@ -1,0 +1,109 @@
+:root {
+  --primary: #1976D2;
+  --secondary: #FFFFFF;
+  --accent: #FFC107;
+  --card-shadow: 0 2px 12px rgba(25, 118, 210, 0.09);
+  --card-border-radius: 20px;
+  --card-hover-shadow: 0 4px 18px rgba(25, 118, 210, 0.16);
+  --font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+.rights-overview-root {
+  background: var(--secondary);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: var(--font-family);
+  padding-top: 80px; /* For navbar offset */
+}
+
+.rights-overview-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 18px 6px 18px;
+}
+
+.rights-overview-title {
+  margin-top: 0;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.rights-overview-description {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.rights-overview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 32px;
+  padding: 0 24px 32px 24px;
+  overflow-y: auto;
+}
+
+.right-card {
+  background: var(--primary);
+  color: var(--secondary);
+  border: none;
+  outline: none;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 42px 16px;
+  cursor: pointer;
+  transition: 
+    box-shadow 0.16s cubic-bezier(0.4,0.0,0.2,1),
+    transform 0.13s cubic-bezier(0.4,0.0,0.2,1),
+    background 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  min-width: 0;
+}
+
+.right-card:focus,
+.right-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  background: linear-gradient(90deg, var(--primary) 80%, var(--accent) 320%);
+  color: #fff;
+  outline: 2.5px solid var(--accent);
+  transform: translateY(-1.5px) scale(1.015);
+  z-index: 2;
+}
+
+.right-card-title {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+@media (max-width: 620px) {
+  .rights-overview-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 8px 22px 8px;
+  }
+  .rights-overview-header {
+    font-size: 1rem;
+    padding: 0 4vw 6px 4vw;
+  }
+  .right-card {
+    font-size: 1.13rem;
+    padding: 30px 8px;
+    border-radius: 16px;
+  }
+  .rights-overview-title {
+    font-size: 2rem;
+  }
+}
