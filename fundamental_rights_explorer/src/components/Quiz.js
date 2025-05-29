@@ -21,9 +21,9 @@ function Quiz({ quiz = [] }) {
 
   // Animate quiz feedback fade class
   const [animFeedback, setAnimFeedback] = useState(Array(quiz.length).fill(""));
+
   // Set animation class on answer or reset
   React.useEffect(() => {
-    // For each question: if answered, animate in, else fade out
     setAnimFeedback(selected.map((s, i) =>
       s !== null ? "quiz-feedback-anim-in quiz-feedback-fade" : "quiz-feedback-anim-out quiz-feedback-fade"
     ));
@@ -143,29 +143,34 @@ function Quiz({ quiz = [] }) {
               );
             })}
           </form>
-          <div id={`quiz-q${qIdx}-feedback`} aria-live="polite" style={{
-            minHeight: 26,
-            marginTop: 2,
-            fontWeight: 500,
-            fontSize: "1.03rem",
-            display: "flex",
-            alignItems: "center",
-            gap: 7,
-            color: isAnswered(qIdx)
-              ? (selected[qIdx] === q.answer ? "var(--primary, #1976D2)" : "#C62828")
-              : "#888"
-          }}>
+          <div
+            id={`quiz-q${qIdx}-feedback`}
+            aria-live="polite"
+            className={animFeedback[qIdx]}
+            style={{
+              minHeight: 26,
+              marginTop: 2,
+              fontWeight: 500,
+              fontSize: "1.03rem",
+              display: "flex",
+              alignItems: "center",
+              gap: 7,
+              color: isAnswered(qIdx)
+                ? (selected[qIdx] === q.answer ? "var(--primary, #1976D2)" : "#C62828")
+                : "#888"
+            }}
+          >
             {isAnswered(qIdx) ? (
               selected[qIdx] === q.answer
                 ? (
                   <>
-                    <span aria-hidden="true" style={{ marginRight: 2 }}><CheckmarkIcon /></span>
+                    <span aria-hidden="true" className="checkmark" style={{ marginRight: 2 }}><CheckmarkIcon /></span>
                     Correct!
                   </>
                 )
                 : (
                   <>
-                    <span aria-hidden="true" style={{ marginRight: 1 }}><CrossIcon /></span>
+                    <span aria-hidden="true" className="cross" style={{ marginRight: 1 }}><CrossIcon /></span>
                     <span>Incorrect.</span>
                     <span style={{ marginLeft: 7, fontWeight: 400, fontSize: "0.97rem", color: "#444" }}>
                       {" "}Correct answer: <b>{q.options[q.answer]}</b>
