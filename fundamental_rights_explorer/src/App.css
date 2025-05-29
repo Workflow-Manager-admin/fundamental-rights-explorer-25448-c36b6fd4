@@ -1,18 +1,30 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  /* Brand palette */
+  --primary: #1976D2;
+  --secondary: #FFFFFF;
+  --accent: #FFC107;
+
+  /* Updated text for light theme */
+  --text-color: #202636;
+  --text-secondary: #505572;
+  --border-color: rgba(25, 118, 210, 0.16);
+
+  --card-radius: 20px;
+  --card-shadow: 0 2px 12px rgba(25, 118, 210, 0.09);
+  --nav-height: 64px;
+  --font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--kavia-dark);
+  background: var(--secondary);
   color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 1.04rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  letter-spacing: 0;
 }
 
 .app {
