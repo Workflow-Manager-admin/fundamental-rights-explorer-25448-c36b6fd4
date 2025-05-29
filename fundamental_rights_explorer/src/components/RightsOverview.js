@@ -1,21 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import rightsData from "../data/rights";
 import "./RightsOverview.css";
 
 /**
  * RightsOverview
  * Main page component listing all fundamental rights as large clickable cards.
- * Prepares for navigation to detail pages (currently placeholder click behavior).
+ * Navigates to the detail page when a right is clicked.
  */
 // PUBLIC_INTERFACE
 function RightsOverview() {
-  // Handle click stub. Sync with router integration when enabled.
+  const navigate = useNavigate();
   const handleRightClick = (right, idx) => {
-    // Placeholder: Eventually navigate to detail page (e.g., `/rights/${idx}`).
-    // Example: navigate(`/rights/${idx}`);
-    // For now, we just log.
-    // eslint-disable-next-line no-console
-    console.log("Clicked:", right.title);
+    navigate(`/right/${idx}`);
   };
 
   return (
