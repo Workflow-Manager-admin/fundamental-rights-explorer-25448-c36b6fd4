@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RightsOverview.css";
+import "../animations.css";
 import { CheckmarkIcon, CrossIcon } from "./Icon";
 
 /**
