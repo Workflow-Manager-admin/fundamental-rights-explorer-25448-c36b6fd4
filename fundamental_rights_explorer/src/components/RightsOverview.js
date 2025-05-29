@@ -12,8 +12,17 @@ import { JusticeIcon } from "./Icon";
 // PUBLIC_INTERFACE
 function RightsOverview() {
   const navigate = useNavigate();
-  const handleRightClick = (right, idx) => {
-    navigate(`/right/${idx}`);
+
+  /**
+   * Handles click on a right card/button.
+   * Navigates to the corresponding right's detail page using its index.
+   * Ensures both keyboard and mouse activation are supported for accessibility.
+   */
+  const handleRightClick = (idx) => {
+    // Defensive: prevent invalid navigation if idx is not a valid right
+    if (typeof idx === "number" && idx >= 0 && idx < rightsData.length) {
+      navigate(`/right/${idx}`);
+    }
   };
 
   return (
@@ -30,7 +39,7 @@ function RightsOverview() {
           <button
             key={right.title}
             className={`right-card right-card--stagger-${idx % 9}`}
-            onClick={() => handleRightClick(right, idx)}
+            onClick={() => handleRightClick(idx)}
             type="button"
             tabIndex={0}
             aria-label={`View details for ${right.title}`}
