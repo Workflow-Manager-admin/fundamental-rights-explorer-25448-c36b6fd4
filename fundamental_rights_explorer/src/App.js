@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import RightsOverview from './components/RightsOverview';
 
 function App() {
   return (
@@ -10,25 +11,12 @@ function App() {
             <div className="logo">
               <span className="logo-symbol">*</span> KAVIA AI
             </div>
-            <button className="btn">Template Button</button>
+            {/* Remove Template Button for cleaner main page */}
           </div>
         </div>
       </nav>
-
       <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">fundamental_rights_explorer</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
-        </div>
+        <RightsOverview />
       </main>
     </div>
   );
