@@ -1,11 +1,15 @@
+/* Animations and transitions have been removed for a static, non-animated UI. 
+All animation keyframes, transition classes, and related styles are commented out or deleted
+to present a purely static experience as per requirements.
+*/
+
+/*
 :root {
-  /* Animation timing for consistency */
   --anim-fade: 0.37s cubic-bezier(0.35,0.06,0.19,0.98);
   --anim-fast: 0.22s cubic-bezier(0.4,0.0,0.2,1);
   --anim-slow: 0.65s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ---------- Entry Fade/Slide for Overview/Detail Pages ---------- */
 .page-fade-appear, .page-fade-enter {
   opacity: 0;
   transform: translateY(36px) scale(0.99);
@@ -14,9 +18,7 @@
 .page-fade-appear-active, .page-fade-enter-active {
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition:
-    opacity var(--anim-fade),
-    transform var(--anim-fade);
+  transition: opacity var(--anim-fade), transform var(--anim-fade);
 }
 .page-fade-exit {
   opacity: 1;
@@ -25,87 +27,25 @@
 .page-fade-exit-active {
   opacity: 0;
   transform: translateY(-22px) scale(0.984);
-  transition:
-    opacity var(--anim-fast),
-    transform var(--anim-fast);
+  transition: opacity var(--anim-fast), transform var(--anim-fast);
 }
 
-/* ---------- Rights Card Entry Animation ---------- */
-@keyframes rightCardIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.93) translateY(32px);
-    box-shadow: none;
-  }
-  69% {
-    opacity: 0.75;
-    transform: scale(1.02) translateY(-6px);
-    box-shadow: var(--card-hover-shadow, 0 4px 18px rgba(25,118,210,0.16));
-  }
-  85% {
-    opacity: 1;
-    transform: scale(1.01) translateY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    box-shadow: var(--card-shadow, 0 2px 12px rgba(25,118,210,0.09));
-  }
-}
+@keyframes rightCardIn { ... }
 .right-card {
-  animation: rightCardIn 0.53s cubic-bezier(0.43,0.1,0.09,0.92) backwards;
+  animation: rightCardIn 0.53s ...;
   will-change: transform, opacity, box-shadow;
 }
-
-.right-card--stagger-0 { animation-delay: 0s; }
-.right-card--stagger-1 { animation-delay: 0.06s; }
-.right-card--stagger-2 { animation-delay: 0.12s; }
-.right-card--stagger-3 { animation-delay: 0.18s; }
-.right-card--stagger-4 { animation-delay: 0.24s; }
-.right-card--stagger-5 { animation-delay: 0.3s; }
-.right-card--stagger-6 { animation-delay: 0.36s; }
-.right-card--stagger-7 { animation-delay: 0.42s; }
-.right-card--stagger-8 { animation-delay: 0.48s; }
-
-/* ---------- Button/Quiz Option Hover Animate ---------- */
+.right-card--stagger-0 { ... }
+...
 .btn, .right-card, .quiz-section label {
   will-change: box-shadow, transform, background, color, border;
-  transition:
-    background 0.19s cubic-bezier(.4,0,.2,1),
-    box-shadow 0.16s cubic-bezier(.4,0,.2,1),
-    color 0.15s cubic-bezier(.4,0,.2,1),
-    border 0.15s,
-    transform 0.14s cubic-bezier(.4,0,.2,1);
+  transition: ...;
 }
-
-/* Quiz feedback indicator animation */
-@keyframes quizFeedbackFadeIn {
-  from { opacity: 0; transform: scale(0.8);}
-  to   { opacity: 1; transform: scale(1);}
-}
-@keyframes quizFeedbackFadeOut {
-  from { opacity: 1; transform: scale(1);}
-  to   { opacity: 0; transform: scale(1.12);}
-}
-.quiz-feedback-anim-in {
-  animation: quizFeedbackFadeIn 0.29s cubic-bezier(.36, .1, .46, 1.02);
-  opacity: 1 !important;
-}
-.quiz-feedback-anim-out {
-  animation: quizFeedbackFadeOut 0.22s cubic-bezier(.36, .1, .46, 1.02);
-  opacity: 0 !important;
-}
-
-.quiz-feedback-fade {
-  transition: opacity 0.19s cubic-bezier(.32, .13, .46, 1.08);
-}
-
-/* Ensures color consistency for animated elements */
-.quiz-feedback-anim-in .checkmark,
-.quiz-feedback-anim-out .checkmark {
-  color: var(--primary, #1976D2);
-}
-.quiz-feedback-anim-in .cross,
-.quiz-feedback-anim-out .cross {
-  color: #C62828;
-}
+@keyframes quizFeedbackFadeIn { ... }
+@keyframes quizFeedbackFadeOut { ... }
+.quiz-feedback-anim-in { ... }
+.quiz-feedback-anim-out { ... }
+.quiz-feedback-fade { ... }
+.quiz-feedback-anim-in .checkmark, .quiz-feedback-anim-out .checkmark { ... }
+.quiz-feedback-anim-in .cross, .quiz-feedback-anim-out .cross { ... }
+*/
