@@ -34,29 +34,33 @@ body {
 }
 
 .navbar {
-  background-color: var(--kavia-dark);
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+  background: var(--secondary);
+  box-shadow: 0 1px 10px 0 rgba(25,118,210,0.08);
+  min-height: var(--nav-height);
+  padding: 0;
   position: fixed;
   top: 0;
   width: 100%;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   z-index: 100;
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.22rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
+  color: var(--primary);
+  letter-spacing: -1.2px;
+  text-shadow: none;
 }
 
 .logo-symbol {
-  color: var(--kavia-orange);
+  color: var(--accent);
+  font-size: 1.5em;
+  margin-right: 2px;
 }
 
 .container {
