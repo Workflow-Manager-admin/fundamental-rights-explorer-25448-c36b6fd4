@@ -75,8 +75,8 @@
   outline: none;
 }
 
-.right-card:focus,
-.right-card:hover {
+body .right-card:focus,
+body .right-card:hover {
   box-shadow: var(--card-hover-shadow);
   background: linear-gradient(90deg, var(--primary) 80%, var(--accent) 320%);
   color: #fff;
@@ -85,7 +85,7 @@
   z-index: 2;
 }
 
-.right-card:active {
+body .right-card:active {
   transform: scale(0.99);
 }
 
