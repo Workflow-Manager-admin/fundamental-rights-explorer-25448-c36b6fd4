@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import "./animations.css";
 import RightsOverview from "./components/RightsOverview";
 import RightsDetail from "./components/RightsDetail";
 
