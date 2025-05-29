@@ -41,7 +41,7 @@ function RightsOverview() {
         {rightsData.map((right, idx) => (
           <button
             key={right.title}
-            className={`right-card right-card--stagger-${idx % 9}`}
+            className="right-card"
             onClick={() => handleRightClick(idx)}
             type="button"
             tabIndex={0}
