@@ -19,6 +19,8 @@ function RightsOverview() {
    * Ensures both keyboard and mouse activation are supported for accessibility.
    */
   const handleRightClick = (idx) => {
+    // Diagnostic: Show alert to verify event and then navigate
+    alert("Clicked! idx=" + idx);
     // Defensive: prevent invalid navigation if idx is not a valid right
     if (typeof idx === "number" && idx >= 0 && idx < rightsData.length) {
       navigate(`/right/${idx}`);
