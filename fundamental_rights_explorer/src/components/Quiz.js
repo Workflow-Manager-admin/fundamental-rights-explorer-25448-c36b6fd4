@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RightsOverview.css";
+import { CheckmarkIcon, CrossIcon } from "./Icon";
 
 /**
  * Quiz
@@ -124,19 +125,30 @@ function Quiz({ quiz = [] }) {
             marginTop: 2,
             fontWeight: 500,
             fontSize: "1.03rem",
+            display: "flex",
+            alignItems: "center",
+            gap: 7,
             color: isAnswered(qIdx)
               ? (selected[qIdx] === q.answer ? "var(--primary, #1976D2)" : "#C62828")
               : "#888"
           }}>
             {isAnswered(qIdx) ? (
               selected[qIdx] === q.answer
-                ? <>✅ Correct!</>
-                : <>
-                    <span>❌ Incorrect.</span>
+                ? (
+                  <>
+                    <span aria-hidden="true" style={{ marginRight: 2 }}><CheckmarkIcon /></span>
+                    Correct!
+                  </>
+                )
+                : (
+                  <>
+                    <span aria-hidden="true" style={{ marginRight: 1 }}><CrossIcon /></span>
+                    <span>Incorrect.</span>
                     <span style={{ marginLeft: 7, fontWeight: 400, fontSize: "0.97rem", color: "#444" }}>
                       {" "}Correct answer: <b>{q.options[q.answer]}</b>
                     </span>
                   </>
+                )
             ) : ""}
           </div>
         </li>
